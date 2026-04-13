@@ -1,0 +1,14 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Data (large files)
+data/IMDB Dataset.csv
+data/sample_reviews.txt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

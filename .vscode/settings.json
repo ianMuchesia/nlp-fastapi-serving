@@ -1,0 +1,17 @@
+{
+    "editor.fontSize": 14,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "python": false,
+        "csharp": false,
+        "typescriptreact": true
+    },
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+  "editor.suggestOnTriggerCharacters": true,
+ 
+  "editor.autoSurround": "never",
+  "editor.inlineSuggest.enabled": false
+}
