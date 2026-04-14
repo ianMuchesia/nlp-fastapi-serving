@@ -81,6 +81,34 @@ class SentimentModel(nn.Module):
             
             
             return labels[index.item()], positive_prob.item()
+        
+        
+        
+    def batch_predict(self,texts,preprocessor):
+        self.eval()
+        with torch.no_grad():
+            #step 1. tokenize the list of strings
+            
+           
+            input_tensor = preprocessor(texts)
+            
+              # Get raw scores (logits)
+            logits = self.forward(input_tensor)
+            
+            # Convert to probabilities
+            probs = torch.softmax(logits, dim=1)
             
             
-   
+            print(f"DEBUG: Shape of probs is {probs.shape}")
+            
+            conf, index = torch.max(probs, dim=1)
+            
+            labels = ["Negative", "Positive"]
+            
+            final_labels = [labels[i] for i in index.tolist()]
+            
+            positive_prob = probs[:,1]
+            
+            return final_labels, positive_prob.tolist(),conf.tolist()
+        
+        
